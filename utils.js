@@ -1,7 +1,7 @@
 
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-    import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc, updateDoc  } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+    import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,8 +24,8 @@
     function createCard(id, task) {
         //<div class="card text-white bg-info mb-6  offset-md-4" style="max-width: 20rem;">
         const principalDiv = document.createElement('div');
-        principalDiv.setAttribute("class", "card bg-light mb-3");
-        principalDiv.style = "max-width: 20rem;";
+        principalDiv.setAttribute("class", "card bg-light offset-md-4");
+        principalDiv.style = "max-width: 40rem;";
         principalDiv.setAttribute("name",id);
         //<div class="card-header">Formulario Tareas</div>
         const headerDiv = document.createElement('div');
@@ -65,10 +65,25 @@
         input2.setAttribute("class", "boton");
         input2.setAttribute('id', id);
         bodyDiv.appendChild(input2);
+
+        bodyDiv.setAttribute("id", "buttonsCard");
+     
+
+        var inputTitle = document.createElement("input");
+        inputTitle.type = 'text';
+        inputTitle.setAttribute("class", "modTitle");
+        inputTitle.value = task.title;
+        bodyDiv.appendChild(inputTitle);
+
+        var textMod = document.createElement("textarea");
+        textMod.cols = "10";
+        textMod.setAttribute("class", "modText");
+        textMod.value = task.description;
+        bodyDiv.appendChild(textMod);
+        
      
     
         principalDiv.appendChild(bodyDiv);
-
         document.body.appendChild(principalDiv);
         const br = document.createElement("br");
         document.body.appendChild(br);
@@ -102,11 +117,11 @@
         alert("Borrada la tarea: "+id);
     }
 
-
+ 
 
     export async function updateTask(id, task){
-
         await updateDoc(doc(db, "tasks", id), task);
         location.reload();
         alert("Modificada la tarea: "+task.title);
     }
+

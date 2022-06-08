@@ -18,27 +18,62 @@
         insertTask(task);
     })
 
-    
+    const modTitle = document.getElementsByClassName("modTitle");
+    const modText = document.getElementsByClassName("modText");
     const modificar = document.getElementsByName("modificar");
-    modificar.forEach(element => {
-    element.addEventListener('click', e =>{
+    
+
+    //MODIFICAR TAREA Y CONFIRMAR ANTES DE MODIFICAR
+     modificar.forEach((element, index) => {
+         
+     element.addEventListener('click', e =>{
+         let confirmarM = prompt('Escriba M o m para confirmar');
+         if(confirmarM == "m" || confirmarM == "M"){
+
+        
         e.preventDefault();
+        
+        let valorT = modTitle[index].value;
+        let valorD = modText[index].value;
+        
+        console.log(valorT);
+        console.log(valorD);
         const task = {
-            title: form["task-title"].value,
-            description: form["task-description"].value
+            title: valorT,
+            description: valorD
         }
         updateTask(element.id, task);
-    })
+    }else{
+        console.log('No se ha modificado la tarea');
+    }
+
+
+      })
         
-    });
+     });
+    
+   
+   
+  
 
-
+//BORRAR TAREA Y CONFIRMAR ANTES DE BORRAR
     const buttonsCardD = document.getElementsByName("delete");
     buttonsCardD.forEach(element => {
         element.addEventListener("click",  () => {
             var divDelete = element.parentNode.parentNode;
-            document.body.removeChild(divDelete);
-            //console.log("Estoy borrando la tarea: "+element.id);
+            
+            let confirmarD = prompt('Escriba D o d para confirmar');
+            if(confirmarD == "d" || confirmarD == "D"){
+                document.body.removeChild(divDelete);
             deleteTask(element.id);
+        }else{
+            console.log('no se ha borrado la tarea');
+        }
         })
     });
+
+// modTitle.forEach((element, index)=>{
+//         let a=element[index].value;
+//         console.log(a)
+//           })
+

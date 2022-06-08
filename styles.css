@@ -1,20 +1,62 @@
-.card-body, .card-header {
-    background: rgb(186, 167, 70);
+body{
+    background-color: rgb(232, 229, 229);
+}
 
+.bg-info{
+    background-color: transparent !important;
+    border: none;
+}
+.card-body {
+    background: rgb(144, 178, 197);
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 10px 0px 10px 0px rgb(175, 170, 170);
+}
+
+.card-header{
+    background: rgb(6, 90, 115);
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 10px 0px 10px 0px rgb(119, 131, 133);
+}
+h3{
+    text-align: center;
+    margin: 30px;
+    box-shadow: 4px 4px 4px 4px rgb(147, 153, 154);
+   
+}
+p{
+    padding: 8px;
+}
+.bg-light{
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: 10px 0px 10px 0px rgb(175, 170, 170);
 }
 
 .boton, .btn-lg{
-    background-color: rgb(115, 115, 165) !important;
+    background-color: rgb(6, 90, 115) !important;
+    color: white;
     padding: 5px;
     margin: 20px;
     border-radius: 10px;
-    
+
 }
+.btn-lg{
+    margin-left: 220px;
+}
+.boton{
+    float: right;
+}
+
 .bg-info{
     margin-top: 100px;
 }
 
-.bg-light{
+.modTitle, .modText{
+    margin: 5px;
     display: block;
-    margin: 0px;
+    width: 300px;
+}
+
+#buttonsCard{
+    background-color: rgb(144, 178, 197);
 }
